@@ -14,17 +14,16 @@ const BOOKS = [
 
 function App() {
   const [books, setBooks] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
-    setBooks(BOOKS);
-    console.log('useEffect');
-  }, []);
-
-  const searchBook = (bookName) => {
-    const newBooks = BOOKS.filter(book => book.title.includes(bookName));
-    console.log(newBooks);
-    setBooks(newBooks);
-  };
+    const searchBook = () => {
+      const newBooks = BOOKS.filter(book => book.title.includes(searchValue));
+      setBooks(newBooks);
+    };
+    searchBook();
+    console.log('fff');
+  }, [searchValue]);
 
   return (
     
@@ -37,7 +36,7 @@ function App() {
       <Row>
         <Col>
           <Container>
-            <Body books={books} onSearch={searchBook}/>
+            <Body books={books} onSearch={(bookName) => setSearchValue(bookName)}/>
           </Container>
         </Col>
       </Row>
