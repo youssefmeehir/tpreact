@@ -9,7 +9,7 @@ const Book = ({book}) => {
         <Card.Body>
           <blockquote className="blockquote mb-0">
             <p>
-              {book.description}
+              {book.summary}
             </p>
           </blockquote>
         </Card.Body>

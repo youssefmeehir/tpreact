@@ -1,32 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Navbar, Container, Row, Col } from 'react-bootstrap';
-import { Nav } from 'react-bootstrap';
 import Header from './components/Header';
-import Body from './components/Body';
+import BookView from './components/BookView';
 
-const BOOKS = [
-  {id: 'EE1', title: 'Java', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Java'},
-  {id: 'EE2',title: 'Laravel', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Laravel'},
-  {id: 'EE3',title: 'PHP', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. PHP'},
-  {id: 'EE4',title: 'ANGULAR', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Angular'}
-]
+import { bookService } from './serviceq/BookService';
+import { Container, Row, Col } from 'react-bootstrap';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import BookDetailsView from './views/BookDetailsView';
 
 function App() {
   const [books, setBooks] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
+
   useEffect(() => {
-    const searchBook = () => {
-      const newBooks = BOOKS.filter(book => book.title.includes(searchValue));
-      setBooks(newBooks);
+    const findBooks = () => {
+      bookService.findBooks()
+      .then(function (response) {
+        setBooks(response.data);
+      });
     };
+
+    const findByTitle = () => {
+      bookService.findBooksByTitle(searchValue)
+      .then(function (response) {
+        setBooks(response.data);
+      });
+    };
+
+
+    const searchBook = () => {
+      if(searchValue.length === 0) {
+        findBooks();
+      } else {
+        findByTitle(searchBook);
+      }
+    };
+
     searchBook();
-    console.log('fff');
   }, [searchValue]);
 
   return (
-    
+    <Router>
     <Container fluid>
       <Row>
         <Col>
@@ -36,11 +56,19 @@ function App() {
       <Row>
         <Col>
           <Container>
-            <Body books={books} onSearch={(bookName) => setSearchValue(bookName)}/>
+            <Switch>
+               <Route path="/books/:id">
+                 <BookDetailsView />
+               </Route>
+               <Route path="/">
+                  <BookView books={books} onSearch={(bookName) => setSearchValue(bookName)}/>
+               </Route>
+             </Switch>
           </Container>
         </Col>
       </Row>
     </Container>
+    </Router>
   );
 }
 
