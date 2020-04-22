@@ -1,29 +1,43 @@
-import React from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Card, Col, Container, Row, Form } from 'react-bootstrap';
 import Book from './Book';
 
-const BOOKS = [
-  {title: 'Java', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Java'},
-  {title: 'Laravel', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Laravel'},
-  {title: 'PHP', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. PHP'},
-  {title: 'ANGULAR', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Angular'}
-]
-const Body = () => {
+
+const Body = ({books, onSearch}) => {
+  const [searchValue, setSearchValue] = useState('');
+  
+  const divStyle = {
+    marginTop: '20px'
+  };
+  
+  const changeTitle = (event) => {
+    setSearchValue(event.target.value);
+  }
+
+  const searchBook = () => {
+    onSearch(searchValue);
+  }
+
   return (
     <Container>
       <Row>
         <Col>
-          <input type="text" />
-          <button>search</button>
+          <div className="input-group mb-3" style={divStyle}>
+            <input type="text" className="form-control" placeholder="Book Title" aria-label="Book Title" aria-describedby="button-addon2" value={searchValue} onChange={changeTitle}/>
+            <div className="input-group-append">
+              <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={searchBook}>Search</button>
+            </div>
+          </div>
         </Col>
       </Row>
       <Row>
           {
-            BOOKS.map((book, key) => <Col><Book book={book} key={key}/></Col>)
+            books.map((book, key) => <Col  key={book.id}><Book book={book}/></Col>)
           }
       </Row>
     </Container>
   )
 };
+
 
 export default Body;
