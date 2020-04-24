@@ -1,6 +1,5 @@
 {
-  "books" :
-  [
+  "books": [
     {
       "isbn": "5ea041f453cb2ba84877c560",
       "summary": "Ea magna irure magna veniam sint ea ea occaecat ipsum excepteur deserunt. Sint exercitation cillum occaecat culpa aute culpa.",
@@ -9,10 +8,7 @@
       "publicationDate": "Tue Oct 27 1998 16:53:02 GMT+0000 (UTC)",
       "numberOfPages": 988,
       "language": "FR",
-      "author": {
-        "id": 0,
-        "name": "Willie Rios"
-      }
+      "author": "Willie Rios"
     },
     {
       "isbn": "5ea041f428fd5f50158a6ae6",
@@ -22,10 +18,7 @@
       "publicationDate": "Fri Feb 09 1990 22:41:13 GMT+0000 (UTC)",
       "numberOfPages": 365,
       "language": "FR",
-      "author": {
-        "id": 1,
-        "name": "Edith Henson"
-      }
+      "author": "Edith Henson"
     },
     {
       "isbn": "5ea041f43eb4b91f5e538502",
@@ -35,10 +28,7 @@
       "publicationDate": "Sun Jul 19 1981 20:50:20 GMT+0000 (UTC)",
       "numberOfPages": 557,
       "language": "EN",
-      "author": {
-        "id": 2,
-        "name": "Zimmerman Moran"
-      }
+      "author": "Zimmerman Moran"
     },
     {
       "isbn": "5ea041f4b63036a1d639c10a",
@@ -48,10 +38,7 @@
       "publicationDate": "Tue Jul 31 2012 09:33:16 GMT+0000 (UTC)",
       "numberOfPages": 816,
       "language": "EN",
-      "author": {
-        "id": 3,
-        "name": "Kirk Robertson"
-      }
+      "author": "Kirk Robertson"
     },
     {
       "isbn": "5ea041f45084d4891815122d",
@@ -61,10 +48,7 @@
       "publicationDate": "Thu Jun 06 2019 16:18:49 GMT+0000 (UTC)",
       "numberOfPages": 292,
       "language": "EN",
-      "author": {
-        "id": 4,
-        "name": "Josefa Cortez"
-      }
+      "author": "Josefa Cortez"
     },
     {
       "isbn": "5ea041f41297ac8bd962a5be",
@@ -74,10 +58,7 @@
       "publicationDate": "Thu Jul 20 1989 02:34:08 GMT+0000 (UTC)",
       "numberOfPages": 369,
       "language": "FR",
-      "author": {
-        "id": 5,
-        "name": "Socorro Rodgers"
-      }
+      "author": "Socorro Rodgers"
     },
     {
       "isbn": "5ea041f41387ef73b2218586",
@@ -87,9 +68,29 @@
       "publicationDate": "Fri Sep 12 1997 07:58:41 GMT+0000 (UTC)",
       "numberOfPages": 857,
       "language": "EN",
-      "author": {
-        "id": 6,
-        "name": "Pamela Giles"
-      }
+      "author": "Pamela Giles"
+    },
+    {
+      "title": "Docker",
+      "language": "EN",
+      "numberOfPages": "500",
+      "publisher": "Raja",
+      "publicationDate": "2020/10/10",
+      "author": "Marouane",
+      "summary": "ssssssss",
+      "isbn": "5ea041f453cb2ba84877c560",
+      "id": "10"
+    },
+    {
+      "title": "TDD",
+      "language": "EN",
+      "numberOfPages": "500",
+      "publisher": "Raja",
+      "publicationDate": "2020/10/10",
+      "author": "Marouane",
+      "summary": "sssssssssss",
+      "id": 1587639017742,
+      "isbn": "5ea041f453cb2ba84877c560"
     }
-]}
+  ]
+}

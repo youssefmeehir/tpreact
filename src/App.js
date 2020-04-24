@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import BookView from './components/BookView';
 
-import { bookService } from './serviceq/BookService';
+import { bookService } from './services/BookService';
 import { Container, Row, Col } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
@@ -12,6 +12,7 @@ import {
   Link
 } from "react-router-dom";
 import BookDetailsView from './views/BookDetailsView';
+import CreateBookView from './views/CreateBookView';
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -57,6 +58,9 @@ function App() {
         <Col>
           <Container>
             <Switch>
+               <Route path="/books/new">
+                 <CreateBookView />
+               </Route>
                <Route path="/books/:id">
                  <BookDetailsView />
                </Route>
