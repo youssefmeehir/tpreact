@@ -13,6 +13,9 @@ import {
 } from "react-router-dom";
 import BookDetailsView from './views/BookDetailsView';
 import CreateBookView from './views/CreateBookView';
+import EditBookView from './views/EditBookView';
+
+
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -46,6 +49,10 @@ function App() {
     searchBook();
   }, [searchValue]);
 
+  const searchBook = (BookName) => {
+    setSearchValue(BookName);
+  }
+
   return (
     <Router>
     <Container fluid>
@@ -58,10 +65,25 @@ function App() {
         <Col>
           <Container>
             <Switch>
+ {/********* si tu utuilise la component BookForm pour une formuaire commun***********
+            <Route path="/books/edit/:id">
+            <Container>
+              <BookForm mode="edit" />
+            </Container>
+          </Route>
+          <Route path="/books/new">
+            <Container>
+              <BookForm mode="create" />
+            </Container>
+          </Route>
+           */}
                <Route path="/books/new">
                  <CreateBookView />
                </Route>
-               <Route path="/books/:id">
+               <Route path="/books/edit/:id">
+                 <EditBookView/>
+               </Route>
+               <Route path="/book/:id">
                  <BookDetailsView />
                </Route>
                <Route path="/">
